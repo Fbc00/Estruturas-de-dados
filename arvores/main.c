@@ -1,22 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include "tree.c"
 
-struct TreeNode
-{
-	int raiz;
-	struct TreeNode *left;
-	struct TreeNode *right;
-};
 
-struct TreeNode *init()
-{
-	struct TreeNode *tree = (struct TreeNode *)malloc(sizeof(struct TreeNode));
 
-	tree->raiz = 0;
-	tree->right = NULL;
-	tree->left = NULL;
-	return tree;
-};
+
 void insert(struct TreeNode *t, int valor)
 {
 	struct TreeNode *tree = init();
@@ -35,7 +23,7 @@ void insert(struct TreeNode *t, int valor)
 
 				t->right = tree;
 			}
-			printf("inserir a direita %d \n", valor);
+			printf("inserir a direita %d \n", t->raiz);
 			insert(t->right, valor);
 		}
 		else
@@ -44,7 +32,7 @@ void insert(struct TreeNode *t, int valor)
 			{
 				t->left = tree;
 			}
-			printf("inserir a esquerda %d \n", valor);
+			printf("inserir a esquerda de %d \n", t->raiz);
 			insert(t->left, valor);
 		}
 	}
