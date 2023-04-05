@@ -2,17 +2,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-struct Node *init()
+list *init()
 {
-	struct Node *node = (struct Node *)malloc(sizeof(struct Node));
+	list *node = (list *)malloc(sizeof(list));
 
 	node->val = 0;
 	node->next = NULL;
 	return node;
 };
-void insert(struct Node *l, int valor)
+void insert(list *l, int valor)
 {
-	struct Node *node = init();
+	list *node = init();
 	if (l->val == 0)
 	{
 		l->val = valor;
@@ -31,11 +31,22 @@ void insert(struct Node *l, int valor)
 	printf("Valor inserido: %d \n", l->val);
 }
 
-void printList(struct Node *l)
+void printList(list *l)
 {
 	while (l->next != NULL)
 	{
 		printf("Valor: %d \n", l->val);
 		l = l->next;
 	}
+}
+
+int search(list *l, int valor)
+{
+	while (l->val != valor)
+	{
+		if (l->next == NULL)
+			return 0;
+		l = l->next;
+	}
+	return l->val;
 }

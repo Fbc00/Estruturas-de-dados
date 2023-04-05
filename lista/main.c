@@ -4,7 +4,7 @@
 
 int main(void)
 {
-	struct Node *l = init();
+	list *l = init();
 
 	insert(l, 7);
 	insert(l, 8);
@@ -15,6 +15,7 @@ int main(void)
 	insert(l, 7);
 
 	printList(l);
+	printf("%d", search(l, 7));
 
 	return 0;
 }
