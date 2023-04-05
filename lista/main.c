@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "list.c"
+#include "doubleLinkedList.c"
 
 int main(void)
 {
@@ -15,7 +16,12 @@ int main(void)
 	insert(l, 7);
 
 	printList(l);
-	printf("%d", search(l, 7));
+	printf("%d \n", search(l, 13));
 
+	doubleLinkedList *dobuleList = initDoubleLinkedList();
+	insertDoubleLinkedList(dobuleList, 10);
+	insertDoubleLinkedList(dobuleList, 12);
+	insertDoubleLinkedList(dobuleList, 13);
+	insertDoubleLinkedList(dobuleList, 14);
 	return 0;
 }
