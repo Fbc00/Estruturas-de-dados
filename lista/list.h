@@ -1,5 +1,13 @@
 struct Node
 {
 	int val;
-	struct Node *next;
-} typedef list;
+	Node Node *next;
+} typedef Node;
+
+
+struct List
+{ 
+	Node *primeiro, *ultimo;
+	
+}typedef list;
+

@@ -4,45 +4,43 @@
 
 list *init()
 {
-	list *node = (list *)malloc(sizeof(list));
+	Node *node = (Node *)malloc(sizeof(list));
+	list *lista = (list *)malloc(sizeof(list));
 
-	node->val = 0;
-	node->next = NULL;
-	return node;
+	lista->primeiro = node;
+	lista->ultimo = lista->primeiro;
+	lista->primeiro->next = NULL;
+	lista->primeiro->val = 0;
+	return lista;
 };
 void insert(list *l, int valor)
 {
-	list *node = init();
+	Node *node = (Node *)malloc(sizeof(Node));
+	node->val = valor;
+	l->ultimo->next = node;
 
-	while (l->next != NULL)
-	{
-		l = l->next;
-	}
-	l->next = node;
-	l->val = valor;
-
-	printf(" - Valor inserido: %d ", l->val);
+	printf(" - Valor inserido: %d ", node->val);
 }
 
-void printList(list *l)
-{
-	while (l->next != NULL)
-	{
-		printf(" - Valor: %d", l->val);
-		l = l->next;
-	}
-}
+// void printList(list *l)
+// {
+// 	while (l->next != NULL)
+// 	{
+// 		printf(" - Valor: %d", l->val);
+// 		l = l->next;
+// 	}
+// }
 
-int search(list *l, int valor)
-{
-	while (l->val != valor)
-	{
-		if (l->next == NULL)
-		{
-			printf("valor não achado");
-			return 0;
-		}
-		l = l->next;
-	}
-	return l->val;
-}
+// int search(list *l, int valor)
+// {
+// 	while (l->val != valor)
+// 	{
+// 		if (l->next == NULL)
+// 		{
+// 			printf("valor não achado");
+// 			return 0;
+// 		}
+// 		l = l->next;
+// 	}
+// 	return l->val;
+// }

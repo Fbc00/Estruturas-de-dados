@@ -15,8 +15,8 @@ int main(void)
 	insert(l, 5);
 	insert(l, 7);
 
-	printList(l);
-	printf("%d \n", search(l, 13));
+	// printList(l);
+	// printf("%d \n", search(l, 13));
 
 	doubleLinkedList *dobuleList = initDoubleLinkedList();
 	insertDoubleLinkedList(dobuleList, 10);
