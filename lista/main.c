@@ -15,13 +15,14 @@ int main(void)
 	insert(l, 5);
 	insert(l, 7);
 
-	// printList(l);
-	// printf("%d \n", search(l, 13));
+	printList(l);
+	printf("%d \n", search(l, 7));
 
-	doubleLinkedList *dobuleList = initDoubleLinkedList();
-	insertDoubleLinkedList(dobuleList, 10);
-	insertDoubleLinkedList(dobuleList, 12);
-	insertDoubleLinkedList(dobuleList, 13);
-	insertDoubleLinkedList(dobuleList, 14);
+	doubleLinkedList *listDouble = initDoubleLinkedList();
+	insertDoubleLinkedList(listDouble, 10);
+	insertDoubleLinkedList(listDouble, 12);
+	insertDoubleLinkedList(listDouble, 13);
+	insertDoubleLinkedList(listDouble, 14);
+
 	return 0;
 }
