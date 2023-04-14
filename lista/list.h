@@ -6,6 +6,7 @@ struct Node
 
 struct List
 {
+	int size;
 	struct Node *primeiro, *ultimo;
 
 } typedef list;

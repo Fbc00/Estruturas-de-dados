@@ -1,22 +1,21 @@
 #include "list.h"
 #include <stdlib.h>
 #include <stdio.h>
-
+typedef struct Node *no;
 list *init()
 {
-	struct Node *node = (struct Node *)malloc(sizeof(struct Node));
+	no node = (no)malloc(sizeof(no));
 	list *lista = (list *)malloc(sizeof(list));
-
+	lista->size = 0;
 	lista->primeiro = node;
 	lista->ultimo = lista->primeiro;
 	lista->primeiro->next = NULL;
-	lista->primeiro->val = 0;
 	return lista;
 };
-int insert(list *l, int valor)
+void insert(list *l, int valor)
 {
-	struct Node *node = (struct Node *)malloc(sizeof(struct Node));
-	if (l->primeiro->val == 0)
+	no node = (no)malloc(sizeof(no));
+	if (!l->primeiro->val)
 	{
 		l->primeiro->val = valor;
 	}
@@ -26,15 +25,28 @@ int insert(list *l, int valor)
 		l->ultimo->next = node;
 		l->ultimo = l->ultimo->next;
 	}
+	l->size++;
 	// printf(" - Valor inserido: %d \n ", valor);
 	// printf("- valor do ultimo: %d \n", l->ultimo->val);
 	// printf("- valor do primeiro: %d \n", l->primeiro->val);
-	return 0;
 }
-
+int insertInit(list *l, int valor)
+{
+	no aux = (no)malloc(sizeof(no));
+	if (l->primeiro->next == NULL)
+	{
+		l->primeiro->val = valor;
+		return 1;
+	}
+	aux->val = valor;
+	aux->next = l->primeiro;
+	l->primeiro = aux;
+	l->size++;
+	return 1;
+}
 void printList(list *l)
 {
-	struct Node *aux = NULL;
+	no aux = (no)malloc(sizeof(no));
 	if (l->primeiro->next)
 	{
 		printf(" - Valor: %d", l->primeiro->val);
@@ -67,4 +79,66 @@ int search(list *l, int valor)
 	}
 	printf("encontrei:  ");
 	return aux->val;
+}
+
+int removeInicio(list *l)
+{
+	no resto = (no)malloc(sizeof(no));
+	if (!l->size)
+	{
+		printf("lista vazia");
+		return -1;
+	}
+
+	resto = l->primeiro;
+	l->primeiro = l->primeiro->next;
+	resto->next = NULL;
+	free(resto);
+
+	l->size--;
+
+	if (!l->size)
+	{
+		l->ultimo = l->primeiro;
+	}
+}
+
+int removeFim(list *l)
+{
+	no resto = (no)malloc(sizeof(no));
+	if (!l->size)
+	{
+		printf("lista vazia");
+		return -1;
+	}
+	if (l->primeiro == l->ultimo)
+	{
+		resto = l->ultimo;
+		l->primeiro = (no)malloc(sizeof(no));
+		l->ultimo = l->primeiro;
+
+		free(resto);
+		l->size--;
+
+		return 1;
+	}
+	no aux;
+	aux = l->primeiro->next;
+
+	while (aux->next->val != l->ultimo->val)
+	{
+		aux = aux->next;
+	}
+
+	resto = l->ultimo;
+	aux->next = NULL;
+	l->ultimo = aux;
+	free(resto);
+
+	l->size--;
+
+	if (!l->size)
+	{
+		l->ultimo = l->primeiro;
+	}
 }

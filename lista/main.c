@@ -15,9 +15,10 @@ int main(void)
 	insert(l, 5);
 	insert(l, 7);
 
-	printList(l);
-	printf("%d \n", search(l, 7));
-
+	// printList(l);
+	// printf("%d \n", search(l, 10));
+	printf("%d", l->size);
+	removeInicio(l);
 	doubleLinkedList *listDouble = initDoubleLinkedList();
 	insertDoubleLinkedList(listDouble, 10);
 	insertDoubleLinkedList(listDouble, 12);
