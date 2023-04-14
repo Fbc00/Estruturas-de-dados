@@ -30,19 +30,20 @@ void insert(list *l, int valor)
 	// printf("- valor do ultimo: %d \n", l->ultimo->val);
 	// printf("- valor do primeiro: %d \n", l->primeiro->val);
 }
-int insertInit(list *l, int valor)
+void insertInit(list *l, int valor)
 {
 	no aux = (no)malloc(sizeof(no));
 	if (l->primeiro->next == NULL)
 	{
 		l->primeiro->val = valor;
-		return 1;
 	}
-	aux->val = valor;
-	aux->next = l->primeiro;
-	l->primeiro = aux;
+	else
+	{
+		aux->val = valor;
+		aux->next = l->primeiro;
+		l->primeiro = aux;
+	}
 	l->size++;
-	return 1;
 }
 void printList(list *l)
 {
