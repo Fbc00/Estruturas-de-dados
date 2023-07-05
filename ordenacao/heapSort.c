@@ -37,7 +37,6 @@ void buildMaxHeap(int A[], int len)
 	{
 		maxHeapify(A, len, k);
 	}
-
 }
 
 void heapSort(int A[], int len)
@@ -53,6 +52,6 @@ void heapSort(int A[], int len)
 
 	for (size_t i = 0; i < len; i++)
 	{
-		printf("%d \n", A[i]);
+		printf(" %d ", A[i]);
 	}
 }

@@ -16,4 +16,9 @@ void insercao(int *list, int len)
 		}
 		list[j + 1] = aux;
 	}
+
+	for (int i = 0; i < len; i++)
+	{
+		printf("%d ", list[i]);
+	}
 }
